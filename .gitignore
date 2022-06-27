@@ -1,2 +1,4 @@
 # Project exclude paths
 /out/
+/.idea/
+/DZ2.4.0.iml/
