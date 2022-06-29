@@ -1,8 +1,6 @@
 public class Main {
-    public static void main(String[] args) throws WrongLoginException, WrongPasswordException{
-        boolean data = PossibleErrors.possibleErrors(new String[]{"java_skypro.go"},
-                new String[]{"D_1hWiKjjP_9"},
-                new String[]{"D_1hWiKjjP_9"});
+    public static void main(String[] args){
+        boolean data = PossibleErrors.possibleErrors("java_skypro_go", "D_1hWiKjjP_9", "D_1hWiKjjP_9");
         if (data) {
             System.out.println("Логин и пароль корректные");
         } else {
