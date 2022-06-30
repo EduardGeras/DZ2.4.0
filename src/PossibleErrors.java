@@ -15,16 +15,19 @@ public class PossibleErrors {
         }
     }
     private static void check(String login, String password, String confirmPassword) throws WrongLoginException, WrongPasswordException {
+        if (login == null || password == null || confirmPassword == null) {
+            throw new WrongLoginException("Данные должны быть заполнены");
+        }
 
-        if (login != null && login.length() > 20) {
+        if (login.length() > 20) {
             throw new WrongLoginException("Длина логина должна быть меньше или равна 20");
         }
 
-        if (password != null && password.length() > 19) {
+        if (password.length() > 19) {
             throw new WrongPasswordException("Длина пароля должна быть меньше или равна 19");
         }
 
-        if (confirmPassword != null && password != null && !password.equals(confirmPassword)) {
+        if (!password.equals(confirmPassword)) {
             throw new WrongPasswordException("Пароли должны совпадать!");
         }
 
@@ -35,7 +38,7 @@ public class PossibleErrors {
         }
         for (int i = 0; i < password.length(); i++) {
             if (!SYMBOLS.contains(String.valueOf(password.charAt(i)))) {
-                throw new WrongLoginException("Пароль содержит неверный символ " + password.charAt(i));
+                throw new WrongPasswordException("Пароль содержит неверный символ " + password.charAt(i));
             }
         }
     }
